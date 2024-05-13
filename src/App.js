@@ -1,26 +1,31 @@
 import './App.css'
+import { useState } from 'react';
 
-function Sqaure({value}) { //child component
-  return <button className='square'>{value}</button>
+function Sqaure() { //child component
+  const [value, setValue] = useState(null);
+  function handleClick() {
+    setValue('X');
+  }
+  return <button className='square' onClick={handleClick}>{value}</button>
 }
 
 export default function Board() { //parent component
-  return ( 
+  return (
     <>
       <div className='board-row'>
-        <Sqaure value="1"/>
-        <Sqaure value="2"/>
-        <Sqaure value="3"/>
+        <Sqaure />
+        <Sqaure />
+        <Sqaure />
       </div>
       <div className='board-row'>
-        <Sqaure value="4"/>
-        <Sqaure value="5"/>
-        <Sqaure value="6"/>
+        <Sqaure />
+        <Sqaure />
+        <Sqaure />
       </div>
       <div className='board-row'>
-        <Sqaure value="7"/>
-        <Sqaure value="8"/>
-        <Sqaure value="9"/>
+        <Sqaure />
+        <Sqaure />
+        <Sqaure />
       </div>
 
     </>
