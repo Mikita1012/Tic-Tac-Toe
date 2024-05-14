@@ -16,6 +16,9 @@ export default function Board() { //parent component
   const[xIsNext, setXIsNext] = useState(true);
 
   function handleClick(i) {
+    if(squares[i]) {
+      return;
+    }
     const nextSquares = squares.slice();
     if(xIsNext) {
       nextSquares[i] = "X";
