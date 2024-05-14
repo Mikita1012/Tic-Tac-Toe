@@ -13,10 +13,16 @@ function Sqaure({value, onSquareClick}) { //child component
 
 export default function Board() { //parent component
   const[squares, setSquares] = useState(Array(9).fill(null));
+  const[xIsNext, setXIsNext] = useState(true);
 
   function handleClick(i) {
     const nextSquares = squares.slice();
-    nextSquares[i] = "X";
+    if(xIsNext) {
+      nextSquares[i] = "X";
+    } else {
+      nextSquares[i] = "O";
+    }
+    setXIsNext(!xIsNext)
     setSquares(nextSquares);
   }
 
